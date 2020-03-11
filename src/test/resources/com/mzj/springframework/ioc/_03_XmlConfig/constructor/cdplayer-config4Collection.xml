@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="sgtPeppers" class="com.mzj.springframework.ioc._03_XmlConfig.constructor.collection.SgtPeppers"/>
+
+    <bean id="mediaPlayer" class="com.mzj.springframework.ioc._03_XmlConfig.constructor.collection.CDPlayer4Collection">
+        <constructor-arg value="abcde"/>
+        <constructor-arg>
+            <list>
+                <value>12</value>
+                <value>34</value>
+                <value>56</value>
+            </list>
+        </constructor-arg>
+        <constructor-arg>
+            <list>
+                <ref bean="sgtPeppers" />
+                <ref bean="sgtPeppers" />
+                <ref bean="sgtPeppers" />
+            </list>
+        </constructor-arg>
+    </bean>
+
+</beans>

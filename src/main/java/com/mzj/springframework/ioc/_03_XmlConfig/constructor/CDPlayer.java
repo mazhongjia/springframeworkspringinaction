@@ -1,4 +1,4 @@
-package com.mzj.springframework.ioc._03_XmlConfig;
+package com.mzj.springframework.ioc._03_XmlConfig.constructor;
 
 public class CDPlayer implements MediaPlayer {
 
