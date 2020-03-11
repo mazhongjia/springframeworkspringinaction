@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="compactDisc" class="com.mzj.springframework.ioc._03_XmlConfig.setter.SgtPeppers"/>
+
+    <bean id="mediaPlayer" class="com.mzj.springframework.ioc._03_XmlConfig.setter.CDPlayer">
+<!--        其中name值对应CDPlayer类中有set方法的属性名称        -->
+        <property name="cd" ref="compactDisc"/>
+    </bean>
+
+</beans>
