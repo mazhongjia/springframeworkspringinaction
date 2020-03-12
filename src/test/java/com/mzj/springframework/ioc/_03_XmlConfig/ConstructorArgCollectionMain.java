@@ -1,7 +1,7 @@
 package com.mzj.springframework.ioc._03_XmlConfig;
 
-        import com.mzj.springframework.ioc._03_XmlConfig.constructor.collection.CDPlayer4Collection;
-        import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.mzj.springframework.ioc._03_XmlConfig.constructor.collection.CDPlayer4Collection;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * @Auther: mazhongjia
