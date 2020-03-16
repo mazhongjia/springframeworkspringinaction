@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @Version: 1.0
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration("classpath:com/mzj/springframework/ioc/_05_advance/runtimeInject/propertyPlaceholde/propertyPlaceholde.xml")C
+//这种方式也可以：@ContextConfiguration("classpath:com/mzj/springframework/ioc/_05_advance/runtimeInject/propertyPlaceholde/propertyPlaceholde.xml")C
 @ContextConfiguration(locations = { "classpath*:com/mzj/springframework/ioc/_05_advance/runtimeInject/propertyPlaceholde/propertyPlaceholde.xml" })
 public class PropertyPlaceholderTest {
 
