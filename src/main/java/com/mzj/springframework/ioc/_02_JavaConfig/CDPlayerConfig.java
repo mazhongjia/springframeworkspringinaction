@@ -3,6 +3,7 @@ package com.mzj.springframework.ioc._02_JavaConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 @Configuration
 //@ComponentScan  //将隐式的自动扫码功能关闭，采用JavaConfig中显示的配置
@@ -29,4 +30,8 @@ public class CDPlayerConfig {
         return new CDPlayer(compactDisc);
     }
 
+    @Bean
+    public static PropertySourcesPlaceholderConfigurer placeholderConfigurer(){
+        return new PropertySourcesPlaceholderConfigurer();
+    }
 }
