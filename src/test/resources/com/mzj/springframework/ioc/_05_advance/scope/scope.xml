@@ -2,9 +2,30 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <context:component-scan base-package="com.mzj.springframework.ioc._05_advance.scope" />
+    <context:component-scan base-package="com.mzj.springframework.aop._01_SpringDeclarativeAOP" />
 
+    <!--一个aop配置-->
+    <aop:config>
+        <!--定义AOP中的切面-->
+        <aop:aspect id="moocAspectAOP" ref="moocAspect">
+            <!--定义AOP中的切入点-->
+            <aop:pointcut expression="execution(* com.mzj.springframework.aop._01_SpringDeclarativeAOP.bean.Performance.perform(..))" id="myFirstPointcut"/>
+            <!--定义AOP中切面应用在切入点中的通知类型：前置通知类型，切面中before方法-->
+            <aop:before method="before" pointcut-ref="moocPiontcut"></aop:before>
+            <aop:after-returning method="afterReturning" pointcut-ref="moocPiontcut"></aop:after-returning>
+            <aop:after-throwing method="afterThrowing" pointcut-ref="moocPiontcut"></aop:after-throwing>
+            <aop:after method="after" pointcut-ref="moocPiontcut"></aop:after>
+            <aop:around method="around" pointcut-ref="moocPiontcut"></aop:around>
+            <!--声明一个环绕通知，切入点是AspectBiz类的init(String,int)方法，只针对这一个方法进行切入-->
+            <aop:around method="aroundInit" pointcut="execution(* com.imooc.aop.schema.advice.biz.AspectBiz.init(String,int)) and args(bizName, times)"></aop:around>
+        </aop:aspect>
+    </aop:config>
 </beans>
