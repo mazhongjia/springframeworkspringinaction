@@ -4,6 +4,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.DeclareParents;
 
 /**
+ * 切面
+ *
  * @Auther: mazhongjia
  * @Date: 2020/3/24 17:57
  * @Version: 1.0
