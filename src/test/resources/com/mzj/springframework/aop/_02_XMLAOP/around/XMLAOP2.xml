@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--业务bean-->
+    <bean id="performance" class="com.mzj.springframework.aop._02_XMLAOP.PerformanceImpl"/>
+
+    <!--普通bean-->
+    <bean id="audience2" class="com.mzj.springframework.aop._02_XMLAOP.around.Audience2"/>
+
+    <aop:config>
+        <!--定义切点-->
+        <aop:pointcut id="performance-cut" expression="execution(** com.mzj.springframework.aop._02_XMLAOP.Performance.perform(..))"/>
+        <!--将一个普通bean定义为切面类，ref属性指向POJO切面类-->
+        <aop:aspect ref="audience2">
+            <!--method：切面类中通知方法，pointcut：切入点（使用AspectJ切点表达式语法所定义的切点。）-->
+            <aop:around method="watchPerformance" pointcut-ref="performance-cut"></aop:around>
+        </aop:aspect>
+    </aop:config>
+</beans>
