@@ -10,11 +10,14 @@
     <bean id="song" class="com.mzj.springframework.aop._02_XMLAOP.NewFeature.SingASongImpl"/>
 
     <!--准备增加的新功能bean-->
-    <bean id="newFeature" class="com.mzj.springframework.aop._02_XMLAOP.NewFeature.NewFeatureImpl"/>
+<!--    <bean id="newFeature" class="com.mzj.springframework.aop._02_XMLAOP.NewFeature.NewFeatureImpl"/>-->
 
     <aop:config>
         <!--将一个普通bean声明为一个切面-->
         <aop:aspect>
+            <!--types-matching：准备增加新功能的业务bean，其中+代表配置bean的子类-->
+            <!--implement-interface：新功能接口-->
+            <!--default-impl：新功能实现，也可以使用delegate-ref指定新功能实现类bean的id，使用default-impl来直接标识委托和间接使用delegate-ref的 区别在于后者是Spring bean，它本身可以被注入、通知或使用其他的 Spring配置。而使用default-impl不需要配置新功能实现类为一个bean-->
             <aop:declare-parents types-matching="com.mzj.springframework.aop._02_XMLAOP.NewFeature.SingASong+" implement-interface="com.mzj.springframework.aop._02_XMLAOP.NewFeature.NewFeature" default-impl="com.mzj.springframework.aop._02_XMLAOP.NewFeature.NewFeatureImpl"/>
         </aop:aspect>
     </aop:config>
