@@ -6,7 +6,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <bean id="criticismEngine" class="com.mzj.springframework.aop._01_SpringDeclarativeAOP.bean.AspectJ.CriticismEngineImpl">
+    <bean id="criticismEngineClass" class="com.mzj.springframework.aop._01_SpringDeclarativeAOP.bean.AspectJ.CriticismEngineImpl">
         <property name="criticismPool">
             <list>
                 <value>AAAAAAAAA</value>
@@ -17,7 +17,7 @@
     </bean>
 
     <bean class="com.mzj.springframework.aop._01_SpringDeclarativeAOP.bean.AspectJ.CriticAspect" factory-method="aspectOf">
-        <property name="criticIsEngine" ref="criticismEngine"></property>
+        <property name="criticismEngine" ref="criticismEngineClass"></property>
 
     </bean>
 </beans>

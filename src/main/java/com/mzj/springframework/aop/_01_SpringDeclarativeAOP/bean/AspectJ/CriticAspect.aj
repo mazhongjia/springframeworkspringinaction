@@ -9,12 +9,12 @@ public aspect CriticAspect {
     pointcut performance() : execution(* perform(..));
 
     afterReturning(): performance(){
-        System.out.println(criticIsEngine.getCriticism());
+        System.out.println(criticismEngine.getCriticism());
     }
 
-    private CriticismEngine criticIsEngine;
+    private CriticismEngine criticismEngine;
 
-    public void setCriticIsEngine(CriticismEngine criticIsEngine) {
-        this.criticIsEngine = criticIsEngine;
+    public void setCriticismEngine(CriticismEngine criticismEngine) {
+        this.criticismEngine = criticismEngine;
     }
 }
